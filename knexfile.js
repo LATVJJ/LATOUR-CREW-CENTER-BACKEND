@@ -1,17 +1,30 @@
-// knexfile.js
 module.exports = {
   development: {
-    client: 'sqlite3', // Define que o cliente do banco de dados é SQLite
+    client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3' // O arquivo onde o banco de dados será armazenado
+      filename: './dev.sqlite3'
     },
-    useNullAsDefault: true, // Necessário para SQLite para definir valores padrão como NULL
+    useNullAsDefault: true,
     migrations: {
-      directory: './migrations' // Onde os arquivos de migração serão armazenados
+      directory: './migrations'
     },
     seeds: {
-      directory: './seeds' // Onde os arquivos de seed (dados iniciais) serão armazenados
+      directory: './seeds'
+    }
+  },
+
+  production: {
+    client: 'pg', 
+    connection: process.env.DATABASE_URL, 
+    migrations: {
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
+    },
+    pool: {
+      min: 2,
+      max: 10
     }
   }
-  // Você pode adicionar configurações para production, staging, etc., aqui futuramente
 };
