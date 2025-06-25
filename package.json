@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:latest": "knex migrate:latest --env production", // Garanta que esta linha exista
-    "seed:run": "knex seed:run --env production", // Se você tiver seeds
-    "postinstall": "npm run migrate:latest" // <--- ESTA LINHA É CRÍTICA
+    "migrate:latest": "knex migrate:latest --env production",
+    "seed:run": "knex seed:run --env production",
+    "postinstall": "npm run migrate:latest"
   },
   "keywords": [],
   "author": "",
